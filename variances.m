@@ -86,30 +86,52 @@ var_ts = mean(var_tsm);
 set(0, 'defaultAxesTickLabelInterpreter','latex')
 set(0, 'defaultLegendInterpreter','latex')
 
+colors = get(gca, 'ColorOrder');
+
 ax1 = subplot(5, 1, 1);
-plot(t_irm, var_ss(1)*ones(1,N_irm), '--', t_ts, var_ts(1)*ones(1,N_ts), '-.', t_irm, var_irm(:,1))
+h1 = plot(t_irm, var_irm(:,1), 'Color', colors(3,:));
+hold on
+h2 = plot(t_ts, var_ts(1)*ones(1,N_ts), '-.', 'Color', colors(2,:));
+h3 = plot(t_irm, var_ss(1)*ones(1,N_irm), '--', 'Color', colors(1,:));
+hold off
 ylabel('$\sigma^2_{\hat{u}}$ [rad$^2$]', 'Interpreter', 'Latex'); title('\textbf{Variances of Aircraft States due to Horizontal Turbulence}', 'Interpreter', 'Latex')
-legend(ax1, 'Analytical', ['Using \texttt{var}, ' num2str(N_rl) ' Realizations'] , 'Impulse Response Method')
+legend([h3 h2 h1], 'Analytical', ['Using \texttt{var}, ' num2str(N_rl) ' Realizations'] , 'Impulse Response Method')
 legend('boxoff')
 grid on
 
 subplot(5, 1, 2)
-plot(t_irm, var_ss(2)*ones(1,N_irm), '--', t_ts, var_ts(2)*ones(1,N_ts), '-.', t_irm, var_irm(:,2))
+plot(t_irm, var_irm(:,2), 'Color', colors(3,:))
+hold on
+plot(t_ts, var_ts(2)*ones(1,N_ts), '-.', 'Color', colors(2,:))
+plot(t_irm, var_ss(2)*ones(1,N_irm), '--', 'Color', colors(1,:))
+hold off
 ylabel('$\sigma^2_{\alpha}$ [rad$^2$]', 'Interpreter', 'Latex');
 grid on
 
 subplot(5, 1, 3)
-plot(t_irm, var_ss(3)*ones(1,N_irm), '--', t_ts, var_ts(3)*ones(1,N_ts), '-.', t_irm, var_irm(:,3))
+plot(t_irm, var_irm(:,3), 'Color', colors(3,:))
+hold on
+plot(t_ts, var_ts(3)*ones(1,N_ts), '-.', 'Color', colors(2,:))
+plot(t_irm, var_ss(3)*ones(1,N_irm), '--', 'Color', colors(1,:))
+hold off
 ylabel('$\sigma^2_{\theta}$ [rad$^2$]', 'Interpreter', 'Latex');
 grid on
 
 subplot(5, 1, 4)
-plot(t_irm, var_ss(4)*ones(1,N_irm), '--', t_ts, var_ts(4)*ones(1,N_ts), '-.', t_irm, var_irm(:,4))
+plot(t_irm, var_irm(:,4), 'Color', colors(3,:))
+hold on
+plot(t_ts, var_ts(4)*ones(1,N_ts), '-.', 'Color', colors(2,:))
+plot(t_irm, var_ss(4)*ones(1,N_irm), '--', 'Color', colors(1,:))
+hold off
 ylabel('$\sigma^2_{\frac{q\overline{c}}{V}}$ [rad$^2$]', 'Interpreter', 'Latex');
 grid on
 
 subplot(5, 1, 5)
-plot(t_irm, var_ss(5)*ones(1,N_irm), '--', t_ts, var_ts(5)*ones(1,N_ts), '-.', t_irm, var_irm(:,5))
+plot(t_irm, var_irm(:,5), 'Color', colors(3,:))
+hold on
+plot(t_ts, var_ts(5)*ones(1,N_ts), '-.', 'Color', colors(2,:))
+plot(t_irm, var_ss(5)*ones(1,N_irm), '--', 'Color', colors(1,:))
+hold off
 xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$\sigma^2_{n_z}$ [rad$^2$]', 'Interpreter', 'Latex');
 grid on
 
