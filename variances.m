@@ -17,11 +17,15 @@ w_ss = logspace(-2, 2, N_ss);
 
 % Select input row (horizontal or vertical turbulence)
 if sigma_ug > 0 && sigma_wg == 0
-    u_ss = 2;
-    S_uu = sigma_ug^2;  % intensity W is equal to variance!
+    u_ss  = 2;
+    S_uu  = sigma_ug^2;  % intensity W is equal to variance!
+    filet = '\textbf{Variances of Aircraft States due to Horizontal Turbulence}';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\var_hor.eps';
 elseif sigma_ug == 0 && sigma_wg > 0
-    u_ss = 3;
-    S_uu = sigma_wg^2;  % intensity W is equal to variance!
+    u_ss  = 3;
+    S_uu  = sigma_wg^2;  % intensity W is equal to variance!
+    filet = '\textbf{Variances of Aircraft States due to Vertical Turbulence}';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\var_vert.eps';
 end
 
 % Compute PSD
@@ -97,7 +101,8 @@ hold on
 h2 = plot(t_ts, var_ts(1)*ones(1,N_ts), '-.', 'Color', colors(2,:));
 h3 = plot(t_irm, var_ss(1)*ones(1,N_irm), '--', 'Color', colors(1,:));
 hold off
-ylabel('$\sigma^2_{\hat{u}}$ [rad$^2$]', 'Interpreter', 'Latex'); title('\textbf{Variances of Aircraft States due to Horizontal Turbulence}', 'Interpreter', 'Latex')
+ylabel('$\sigma^2_{\hat{u}}$ [rad$^2$]', 'Interpreter', 'Latex'); title(filet, 'Interpreter', 'Latex')
+legend('Location', [0.755 0.84 0 0])
 legend([h3 h2 h1], 'Analytical', ['Using \texttt{var}, ' num2str(N_rl) ' Realizations'] , 'Impulse Response Method')
 legend('boxoff')
 grid on
@@ -138,3 +143,4 @@ hold off
 xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$\sigma^2_{n_z}$ [rad$^2$]', 'Interpreter', 'Latex');
 grid on
 
+saveas(gcf, filen, 'epsc')

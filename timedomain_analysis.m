@@ -9,6 +9,14 @@ clear; close all; clc
 
 ss_symmetric
 
+% Detect type of turbulence for plotting/saving
+if sigma_ug > 0 && sigma_wg == 0
+    filet = '\textbf{Aircraft Response to Horizontal Turbulence}';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\timeresponse_hor.eps';
+elseif sigma_ug == 0 && sigma_wg > 0
+    filet = '\textbf{Aircraft Response to Vertical Turbulence}';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\timeresponse_vert.eps';
+end
 %% Define Input Vectors
 
 % Time vector
@@ -38,7 +46,7 @@ set(0, 'DefaultFigurePosition', [152.5 168 719 791.5])
 
 subplot(5, 1, 1)
 plot(t, y(:,1))
-ylabel('$\hat{u}$ [-]', 'Interpreter', 'Latex'); title('\textbf{Aircraft Response to Vertical Turbulence}', 'Interpreter', 'Latex')
+ylabel('$\hat{u}$ [-]', 'Interpreter', 'Latex'); title(filet, 'Interpreter', 'Latex')
 grid on
 
 subplot(5, 1, 2)
@@ -60,3 +68,5 @@ subplot(5, 1, 5)
 plot(t, y(:,5))
 xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$n_z$ [-]', 'Interpreter', 'Latex')
 grid on
+
+saveas(gcf, filen, 'epsc')

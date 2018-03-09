@@ -17,11 +17,15 @@ w_ss = logspace(-2, 2, N_ss);
 
 % Select input row (horizontal or vertical turbulence)
 if sigma_ug > 0 && sigma_wg == 0
-    u_ss = 2;
-    S_uu = sigma_ug^2;  % intensity W is equal to variance!
+    u_ss  = 2;
+    S_uu  = sigma_ug^2;    % intensity W is equal to variance!
+    filet = '\textbf{Power Spectral Densities of Aircraft States due to Horizontal Turbulence}';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\spectral_hor.eps';
 elseif sigma_ug == 0 && sigma_wg > 0
-    u_ss = 3;
-    S_uu = sigma_wg^2;  % intensity W is equal to variance!
+    u_ss  = 3;
+    S_uu  = sigma_wg^2;     % intensity W is equal to variance!
+    filet = '\textbf{Power Spectral Densities of Aircraft States due to Vertical Turbulence}';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\spectral_vert.eps';
 end
 
 % Compute PSD
@@ -93,8 +97,9 @@ h2 = loglog(w_fft, I_fft(1:floor(N_fft/2),1), '-.', 'Color', colors(2,:));
 h3 = loglog(w_ss, S_xx(:,1), '--', 'Color', colors(1,:));
 hold off
 axis(10.^[-2, 2, -15, 0])
-ylabel('$S_{\hat{u}\hat{u}}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex'); title('\textbf{Power Spectral Densities of Aircraft States due to Vertical Turbulence}', 'Interpreter', 'Latex')
-legend([h3 h2 h1], 'Analytical', ['FFT, ' num2str(N_rl) ' Realizations'] , 'Filtered')
+ylabel('$S_{\hat{u}\hat{u}}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex'); title(filet, 'Interpreter', 'Latex')
+legend('Location', [0.782 0.887 0 0])
+legend([h3 h2 h1], 'Analytical', ['FFT, ' num2str(N_rl) ' Realizations'] , 'Filtered');
 legend('boxoff')
 grid on
 
@@ -137,3 +142,5 @@ hold off
 axis(10.^[-2, 2, -10, 0])
 xlabel('$\omega$ [rad/s]', 'Interpreter', 'Latex'); ylabel('$S_{n_zn_z}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex')
 grid on
+
+saveas(gcf, filen, 'epsc')

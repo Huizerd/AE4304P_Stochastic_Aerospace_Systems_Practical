@@ -39,6 +39,7 @@ ylabel('$\hat{u}$ [-]', 'Interpreter', 'Latex'); title('\textbf{Aircraft Respons
 grid on
 legend(ax1, 'Undamped', 'Pitch Damper')
 legend('boxoff')
+legend('Location', [0.80 0.892 0 0])
 
 subplot(5, 1, 2)
 plot(t, y(:,2)*180/pi, '--', t, y_t(:,2)*180/pi)
@@ -59,3 +60,5 @@ subplot(5, 1, 5)
 plot(t, y(:,5), '--', t, y_t(:,5))
 xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$n_z$ [-]', 'Interpreter', 'Latex')
 grid on
+
+saveas(gcf, 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\stability.eps', 'epsc')
