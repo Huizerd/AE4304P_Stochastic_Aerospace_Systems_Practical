@@ -32,8 +32,9 @@ y = lsim(A_t, B, C_t, D, u, t);              % make use of the damped A- and C-m
 
 %% Plotting Results
 
-set(0, 'defaultAxesTickLabelInterpreter','latex')
-set(0, 'defaultLegendInterpreter','latex')
+set(0, 'DefaultAxesTickLabelInterpreter','latex')
+set(0, 'DefaultLegendInterpreter','latex')
+set(0, 'DefaultFigurePosition', [152.5 168 719 791.5])
 
 subplot(5, 1, 1)
 plot(t, y(:,1))

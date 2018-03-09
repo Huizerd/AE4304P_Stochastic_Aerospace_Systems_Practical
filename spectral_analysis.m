@@ -78,8 +78,11 @@ I_filt = 0.25 * I_fft1(1:end-2,:) + 0.5 * I_fft1(2:end-1,:) + 0.25 * I_fft1(3:en
 
 %% Plotting
 
-set(0, 'defaultAxesTickLabelInterpreter','latex')
-set(0, 'defaultLegendInterpreter','latex')
+% Include automatic figure saving? For both turbulence cases?
+
+set(0, 'DefaultAxesTickLabelInterpreter','latex')
+set(0, 'DefaultLegendInterpreter','latex')
+set(0, 'DefaultFigurePosition', [152.5 168 719 791.5])
 
 colors = get(gca, 'ColorOrder');
 
@@ -90,7 +93,7 @@ h2 = loglog(w_fft, I_fft(1:floor(N_fft/2),1), '-.', 'Color', colors(2,:));
 h3 = loglog(w_ss, S_xx(:,1), '--', 'Color', colors(1,:));
 hold off
 axis(10.^[-2, 2, -15, 0])
-ylabel('$S_{\hat{u}\hat{u}}$ [rad$^2$]', 'Interpreter', 'Latex'); title('\textbf{Power Spectral Densities of Aircraft States due to Vertical Turbulence}', 'Interpreter', 'Latex')
+ylabel('$S_{\hat{u}\hat{u}}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex'); title('\textbf{Power Spectral Densities of Aircraft States due to Vertical Turbulence}', 'Interpreter', 'Latex')
 legend([h3 h2 h1], 'Analytical', ['FFT, ' num2str(N_rl) ' Realizations'] , 'Filtered')
 legend('boxoff')
 grid on
@@ -102,7 +105,7 @@ loglog(w_fft, I_fft(1:floor(N_fft/2),2), '-.', 'Color', colors(2,:))
 loglog(w_ss, S_xx(:,2), '--', 'Color', colors(1,:))
 hold off
 axis(10.^[-2, 2, -15, 0])
-ylabel('$S_{\alpha\alpha}$ [rad$^2$]', 'Interpreter', 'Latex')
+ylabel('$S_{\alpha\alpha}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex')
 grid on
 
 subplot(5, 1, 3)
@@ -112,7 +115,7 @@ loglog(w_fft, I_fft(1:floor(N_fft/2),3), '-.', 'Color', colors(2,:))
 loglog(w_ss, S_xx(:,3), '--', 'Color', colors(1,:))
 hold off
 axis(10.^[-2, 2, -15, 0])
-ylabel('$S_{\theta\theta}$ [rad$^2$]', 'Interpreter', 'Latex')
+ylabel('$S_{\theta\theta}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex')
 grid on
 
 subplot(5, 1, 4)
@@ -122,7 +125,7 @@ loglog(w_fft, I_fft(1:floor(N_fft/2),4), '-.', 'Color', colors(2,:))
 loglog(w_ss, S_xx(:,4), '--', 'Color', colors(1,:))
 hold off
 axis(10.^[-2, 2, -20, -5])
-ylabel('$S_{\frac{q\overline{c}}{V}\frac{q\overline{c}}{V}}$ [rad$^2$]', 'Interpreter', 'Latex')
+ylabel('$S_{\frac{q\overline{c}}{V}\frac{q\overline{c}}{V}}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex')
 grid on
 
 subplot(5, 1, 5)
@@ -132,5 +135,5 @@ loglog(w_fft, I_fft(1:floor(N_fft/2),5), '-.', 'Color', colors(2,:))
 loglog(w_ss, S_xx(:,5), '--', 'Color', colors(1,:))
 hold off
 axis(10.^[-2, 2, -10, 0])
-xlabel('$\omega$ [rad/s]', 'Interpreter', 'Latex'); ylabel('$S_{n_zn_z}$ [rad$^2$]', 'Interpreter', 'Latex')
+xlabel('$\omega$ [rad/s]', 'Interpreter', 'Latex'); ylabel('$S_{n_zn_z}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex')
 grid on
