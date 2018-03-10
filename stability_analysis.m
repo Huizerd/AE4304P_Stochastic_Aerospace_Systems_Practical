@@ -61,4 +61,5 @@ plot(t, y(:,5), '--', t, y_t(:,5))
 xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$n_z$ [-]', 'Interpreter', 'Latex')
 grid on
 
-saveas(gcf, 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\stability.eps', 'epsc')
+set(gcf, 'Renderer', 'Painters')
+print('-painters', '-depsc', 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\stability.eps')

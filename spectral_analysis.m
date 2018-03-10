@@ -143,4 +143,5 @@ axis(10.^[-2, 2, -10, 0])
 xlabel('$\omega$ [rad/s]', 'Interpreter', 'Latex'); ylabel('$S_{n_zn_z}$ $\Big[\frac{\mbox{rad$^2$}}{\mbox{rad/s}}\Big]$', 'Interpreter', 'Latex')
 grid on
 
-saveas(gcf, filen, 'epsc')
+set(gcf, 'Renderer', 'Painters')
+print('-painters', '-depsc', filen)

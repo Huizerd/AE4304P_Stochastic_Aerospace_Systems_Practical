@@ -69,4 +69,5 @@ plot(t, y(:,5))
 xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$n_z$ [-]', 'Interpreter', 'Latex')
 grid on
 
-saveas(gcf, filen, 'epsc')
+set(gcf, 'Renderer', 'Painters')
+print('-painters', '-depsc', filen)

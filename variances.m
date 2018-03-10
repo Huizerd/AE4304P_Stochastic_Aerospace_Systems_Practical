@@ -143,4 +143,5 @@ hold off
 xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$\sigma^2_{n_z}$ [rad$^2$]', 'Interpreter', 'Latex');
 grid on
 
-saveas(gcf, filen, 'epsc')
+set(gcf, 'Renderer', 'Painters')
+print('-painters', '-depsc', filen)
