@@ -20,12 +20,12 @@ if sigma_ug > 0 && sigma_wg == 0
     u_ss  = 2;
     S_uu  = sigma_ug^2;  % intensity W is equal to variance!
     filet = '\textbf{Variances of Aircraft States due to Horizontal Turbulence}';
-    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\var_hor.eps';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\var_hor';
 elseif sigma_ug == 0 && sigma_wg > 0
     u_ss  = 3;
     S_uu  = sigma_wg^2;  % intensity W is equal to variance!
     filet = '\textbf{Variances of Aircraft States due to Vertical Turbulence}';
-    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\var_vert.eps';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\var_vert';
 end
 
 % Compute PSD
@@ -101,7 +101,7 @@ hold on
 h2 = plot(t_ts, var_ts(1)*ones(1,N_ts), '-.', 'Color', colors(2,:));
 h3 = plot(t_irm, var_ss(1)*ones(1,N_irm), '--', 'Color', colors(1,:));
 hold off
-ylabel('$\sigma^2_{\hat{u}}$ [rad$^2$]', 'Interpreter', 'Latex'); title(filet, 'Interpreter', 'Latex')
+ylabel('$\sigma^2_{\hat{u}}$ \big[rad$^2$\big]', 'Interpreter', 'Latex'); title(filet, 'Interpreter', 'Latex')
 legend('Location', [0.755 0.84 0 0])
 legend([h3 h2 h1], 'Analytical', ['Using \texttt{var}, ' num2str(N_rl) ' Realizations'] , 'Impulse Response Method')
 legend('boxoff')
@@ -113,7 +113,7 @@ hold on
 plot(t_ts, var_ts(2)*ones(1,N_ts), '-.', 'Color', colors(2,:))
 plot(t_irm, var_ss(2)*ones(1,N_irm), '--', 'Color', colors(1,:))
 hold off
-ylabel('$\sigma^2_{\alpha}$ [rad$^2$]', 'Interpreter', 'Latex');
+ylabel('$\sigma^2_{\alpha}$ \big[rad$^2$\big]', 'Interpreter', 'Latex');
 grid on
 
 subplot(5, 1, 3)
@@ -122,7 +122,7 @@ hold on
 plot(t_ts, var_ts(3)*ones(1,N_ts), '-.', 'Color', colors(2,:))
 plot(t_irm, var_ss(3)*ones(1,N_irm), '--', 'Color', colors(1,:))
 hold off
-ylabel('$\sigma^2_{\theta}$ [rad$^2$]', 'Interpreter', 'Latex');
+ylabel('$\sigma^2_{\theta}$ \big[rad$^2$\big]', 'Interpreter', 'Latex');
 grid on
 
 subplot(5, 1, 4)
@@ -131,7 +131,7 @@ hold on
 plot(t_ts, var_ts(4)*ones(1,N_ts), '-.', 'Color', colors(2,:))
 plot(t_irm, var_ss(4)*ones(1,N_irm), '--', 'Color', colors(1,:))
 hold off
-ylabel('$\sigma^2_{\frac{q\overline{c}}{V}}$ [rad$^2$]', 'Interpreter', 'Latex');
+ylabel('$\sigma^2_{\frac{q\overline{c}}{V}}$ \big[rad$^2$\big]', 'Interpreter', 'Latex');
 grid on
 
 subplot(5, 1, 5)
@@ -140,8 +140,9 @@ hold on
 plot(t_ts, var_ts(5)*ones(1,N_ts), '-.', 'Color', colors(2,:))
 plot(t_irm, var_ss(5)*ones(1,N_irm), '--', 'Color', colors(1,:))
 hold off
-xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$\sigma^2_{n_z}$ [rad$^2$]', 'Interpreter', 'Latex');
+xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$\sigma^2_{n_z}$ \big[rad$^2$\big]', 'Interpreter', 'Latex');
 grid on
 
 set(gcf, 'Renderer', 'Painters')
-print('-painters', '-depsc', filen)
+savefig([filen '.fig'])
+print('-painters', '-depsc', [filen '.eps'])

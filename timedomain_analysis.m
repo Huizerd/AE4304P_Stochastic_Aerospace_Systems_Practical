@@ -12,10 +12,10 @@ ss_symmetric
 % Detect type of turbulence for plotting/saving
 if sigma_ug > 0 && sigma_wg == 0
     filet = '\textbf{Aircraft Response to Horizontal Turbulence}';
-    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\timeresponse_hor.eps';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\timeresponse_hor';
 elseif sigma_ug == 0 && sigma_wg > 0
     filet = '\textbf{Aircraft Response to Vertical Turbulence}';
-    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\timeresponse_vert.eps';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\timeresponse_vert';
 end
 %% Define Input Vectors
 
@@ -70,4 +70,5 @@ xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$n_z$ [-]', 'Interpreter', 'L
 grid on
 
 set(gcf, 'Renderer', 'Painters')
-print('-painters', '-depsc', filen)
+savefig([filen '.fig'])
+print('-painters', '-depsc', [filen '.eps'])

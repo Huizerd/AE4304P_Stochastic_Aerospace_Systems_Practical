@@ -62,4 +62,5 @@ xlabel('$t$ [s]', 'Interpreter', 'Latex'); ylabel('$n_z$ [-]', 'Interpreter', 'L
 grid on
 
 set(gcf, 'Renderer', 'Painters')
+savefig('C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\stability.fig')
 print('-painters', '-depsc', 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\stability.eps')

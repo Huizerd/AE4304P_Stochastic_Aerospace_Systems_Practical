@@ -20,12 +20,12 @@ if sigma_ug > 0 && sigma_wg == 0
     u_ss  = 2;
     S_uu  = sigma_ug^2;    % intensity W is equal to variance!
     filet = '\textbf{Power Spectral Densities of Aircraft States due to Horizontal Turbulence}';
-    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\spectral_hor.eps';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\spectral_hor';
 elseif sigma_ug == 0 && sigma_wg > 0
     u_ss  = 3;
     S_uu  = sigma_wg^2;     % intensity W is equal to variance!
     filet = '\textbf{Power Spectral Densities of Aircraft States due to Vertical Turbulence}';
-    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\spectral_vert.eps';
+    filen = 'C:\Users\jesse\Google Drive\CnS\AE4304P_Stochastic_Aerospace_Systems_Practical\figures\spectral_vert';
 end
 
 % Compute PSD
@@ -144,4 +144,5 @@ xlabel('$\omega$ [rad/s]', 'Interpreter', 'Latex'); ylabel('$S_{n_zn_z}$ $\Big[\
 grid on
 
 set(gcf, 'Renderer', 'Painters')
-print('-painters', '-depsc', filen)
+savefig([filen '.fig'])
+print('-painters', '-depsc', [filen '.eps'])
