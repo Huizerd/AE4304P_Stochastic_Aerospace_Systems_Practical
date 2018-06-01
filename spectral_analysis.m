@@ -84,8 +84,8 @@ I_filt = 0.25 * I_fft1(1:end-2,:) + 0.5 * I_fft1(2:end-1,:) + 0.25 * I_fft1(3:en
 
 % Include automatic figure saving? For both turbulence cases?
 
-set(0, 'DefaultAxesTickLabelInterpreter','latex')
-set(0, 'DefaultLegendInterpreter','latex')
+set(0, 'DefaultAxesTickLabelInterpreter','Latex')
+set(0, 'DefaultLegendInterpreter','Latex')
 set(0, 'DefaultFigurePosition', [152.5 168 719 791.5])
 
 colors = get(gca, 'ColorOrder');

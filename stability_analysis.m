@@ -29,8 +29,8 @@ y_t = lsim(A_t, B, C_t, D, u, t);         % then with pitch damper
 
 %% Plotting Results
 
-set(0, 'DefaultAxesTickLabelInterpreter','latex')
-set(0, 'DefaultLegendInterpreter','latex')
+set(0, 'DefaultAxesTickLabelInterpreter','Latex')
+set(0, 'DefaultLegendInterpreter','Latex')
 set(0, 'DefaultFigurePosition', [152.5 168 719 791.5])
 
 ax1 = subplot(5, 1, 1);

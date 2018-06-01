@@ -89,8 +89,8 @@ var_ts = mean(var_tsm);
 
 % Include automatic figure saving? For both turbulence cases?
 
-set(0, 'DefaultAxesTickLabelInterpreter','latex')
-set(0, 'DefaultLegendInterpreter','latex')
+set(0, 'DefaultAxesTickLabelInterpreter','Latex')
+set(0, 'DefaultLegendInterpreter','Latex')
 set(0, 'DefaultFigurePosition', [152.5 168 719 791.5])
 
 colors = get(gca, 'ColorOrder');
