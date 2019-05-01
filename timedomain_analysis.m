@@ -1,5 +1,4 @@
 % Time Domain Analysis of Aircraft in Turbulence
-% Jesse Hagenaars, 07-02-18
 
 clear; close all; clc
 

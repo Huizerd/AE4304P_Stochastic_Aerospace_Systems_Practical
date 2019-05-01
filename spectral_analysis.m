@@ -1,5 +1,4 @@
 % Spectral Analysis of Aircraft in Turbulence
-% Jesse Hagenaars, 08-02-18
 
 clear; close all; clc
 

@@ -1,5 +1,4 @@
 % Variances of Aircraft States
-% Jesse Hagenaars, 08-02-18
 
 clear; close all; clc
 

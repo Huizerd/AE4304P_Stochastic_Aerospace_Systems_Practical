@@ -1,5 +1,4 @@
 % Computation of the Symmetric State Space
-% Jesse Hagenaars, 02-02-18
 
 clear; close all; clc
 

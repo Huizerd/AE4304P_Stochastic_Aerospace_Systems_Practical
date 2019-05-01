@@ -1,5 +1,4 @@
 % Stability Analysis of Aircraft
-% Jesse Hagenaars, 12-02-18
 
 clear; close all; clc
 
